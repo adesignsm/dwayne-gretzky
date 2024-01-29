@@ -1,0 +1,51 @@
+.shows-table .description {
+    color: #fff;
+}
+
+.shows-table .description h1 {
+    text-transform: uppercase;
+    letter-spacing: -0.25rem;
+    margin-bottom: 0;
+}
+
+.shows-table .description p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    max-width: 390px;
+    min-width: 360px;
+    opacity: 0.6;
+}
+
+.shows-table table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #fff;
+    width: 100%;
+}
+
+.shows-table table thead tr th {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: xxx-large;
+    letter-spacing: -0.25rem;
+}
+
+.shows-table table tbody tr {
+    text-align: center;
+}
+
+.shows-table table tbody tr a {
+    color: #fff;
+}
+  
+.shows-table table th,
+.shows-table table td {
+    border: 1px solid white;
+    padding: 8px;
+}
+  
+
+  
