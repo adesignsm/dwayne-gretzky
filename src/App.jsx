@@ -1,4 +1,5 @@
 import { Header } from './Components/Header';
+import { Hero } from './Components/Hero';
 import './root.css';
 
 export const App = () => {
@@ -6,6 +7,7 @@ export const App = () => {
         <>
             <main className='page'>
                 <Header />
+                <Hero />
             </main>
         </>
     )

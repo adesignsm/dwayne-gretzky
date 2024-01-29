@@ -1,0 +1,15 @@
+.hero {
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+}
+
+.hero .logo {
+    width: 100%;
+}
+
+.hero .logo img {
+    width: 100%;
+    transform: scale(1.15);
+}
