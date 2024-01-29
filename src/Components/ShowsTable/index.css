@@ -1,0 +1,114 @@
+.shows-table {
+    margin-bottom: 5rem;
+}
+
+.shows-table .description {
+    color: #fff;
+}
+
+.shows-table .description h1 {
+    text-transform: uppercase;
+    letter-spacing: -0.25rem;
+    margin-bottom: 0;
+}
+
+.shows-table .description p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    max-width: 390px;
+    min-width: 360px;
+    opacity: 0.6;
+}
+
+.shows-table table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #fff;
+    width: 100%;
+}
+
+.shows-table table thead tr th {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: xxx-large;
+    letter-spacing: -0.25rem;
+}
+
+.shows-table table tbody tr {
+    text-align: center;
+}
+
+.shows-table table tbody tr a {
+    color: #fff;
+}
+  
+.shows-table table th,
+.shows-table table td {
+    border: 1px solid white;
+    padding: 8px;
+}
+  
+.accordion {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+  
+.accordion-item {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+  
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding-bottom: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.accordion-header .city {
+    font-size: xx-large;
+    font-weight: 400;
+}
+  
+.accordion-content {
+    background-color: transparent;
+    color: #fff;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-content.active {
+    max-height: 200px;
+}
+
+.accordion-content a {
+    color: #fff;
+}
+  
+.accordion-content p {
+    color: #fff;
+}
+
+.accordion-icon {
+    font-size: 3em;
+    font-weight: lighter;
+}
+
+.accordion-icon.minus {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-icon.plus {
+    transform: rotate(0);
+    transition: transform 0.3s ease-in-out;
+}
+    
