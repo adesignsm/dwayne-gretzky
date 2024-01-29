@@ -51,5 +51,64 @@
     padding: 8px;
 }
   
-
+.accordion {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
   
+.accordion-item {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+  
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding-bottom: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.accordion-header .city {
+    font-size: xx-large;
+    font-weight: 400;
+}
+  
+.accordion-content {
+    background-color: transparent;
+    color: #fff;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.accordion-content.active {
+    max-height: 200px;
+}
+
+.accordion-content a {
+    color: #fff;
+}
+  
+.accordion-content p {
+    color: #fff;
+}
+
+.accordion-icon {
+    font-size: 3em;
+    font-weight: lighter;
+}
+
+.accordion-icon.minus {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-icon.plus {
+    transform: rotate(0);
+    transition: transform 0.3s ease-in-out;
+}
+    

@@ -5,6 +5,8 @@ import './index.css';
 
 export const ShowsTable = () => {
     const [showData, setShowData] = useState([]);
+    const [width, setWidth] = useState(window.innerWidth);
+    const [activeIndex, setActiveIndex] = useState(null);
 
     const fetchData = async () => {
         try {
@@ -17,9 +19,27 @@ export const ShowsTable = () => {
         }
     };
 
+    const handleWindowResize = () => {
+        setWidth(window.innerWidth);
+    }
+
+    const handleAccordionClick = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    }
+
     useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        }
+    }, []);
+
+    const isMobile = width <= 768;
 
     return (
         <>
@@ -33,7 +53,8 @@ export const ShowsTable = () => {
                         * To pace a booking request please navigate to the booking form below the shows table
                     </p>
                 </div>
-                <table>
+                {!isMobile ? (
+                    <table>
                     <thead>
                         <tr>
                             <th>Show Date</th>
@@ -63,6 +84,36 @@ export const ShowsTable = () => {
                         })}
                     </tbody>
                 </table>
+                ) : (
+                    <div className="accordion">
+                        {showData.map((show, index) => (
+                            <div key={index} className={`accordion-item`}>
+                                <div className="accordion-header" onClick={() => handleAccordionClick(index)}>
+                                    <span className='city'>{show.city}</span>
+                                    <span className={`accordion-icon ${activeIndex === index ? 'minus' : 'plus'}`}>
+                                        {activeIndex === index ? '\u2212' : '\u002B'}
+                                    </span>
+                                </div>
+                                <div className={`accordion-content ${activeIndex === index ? 'active' : ''}`}>
+                                    <span>{show.date.replace(/-/g, '/')}</span>
+                                    <br />
+                                    <br />
+                                    <span>{show.venue}</span>
+                                    <br />
+                                    {show.link !== undefined ? (
+                                        <p>
+                                            <a href={show.link} target="_blank" rel="noopener noreferrer">
+                                            Ticket Link
+                                            </a>
+                                        </p>
+                                    ) : (
+                                        <p>No tickets at this time</p>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </>
     )
