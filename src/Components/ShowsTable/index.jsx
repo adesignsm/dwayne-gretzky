@@ -27,7 +27,10 @@ export const ShowsTable = () => {
                 <div className='description'>
                     <h1>Shows</h1>
                     <p>
-                        Show dates, locations, venues, and ticket portals are available in the show table below.
+                        Show dates, locations, venues, and ticket portals are available in the shows table below.
+                        <br />
+                        <br />
+                        * To pace a booking request please navigate to the booking form below the shows table
                     </p>
                 </div>
                 <table>

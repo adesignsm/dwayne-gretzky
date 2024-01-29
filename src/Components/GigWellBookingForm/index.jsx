@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import './index.css';
+
 export const GigwellBookingForm = () => {
     useEffect(() => {
         const loadGigwellScript = () => {
@@ -21,6 +23,8 @@ export const GigwellBookingForm = () => {
     }, []);
 
     return (
-        <gigwell-booking-form open-on-load="true" agency-id="461472" settings="default"></gigwell-booking-form>
+        <>
+            <gigwell-booking-form open-on-load="true" agency-id="461472" settings="default"></gigwell-booking-form>
+        </>
     );
 };
