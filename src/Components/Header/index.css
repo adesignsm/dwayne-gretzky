@@ -1,0 +1,12 @@
+.header {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header .social-media-icons {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
