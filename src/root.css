@@ -14,3 +14,7 @@ body,  html {
 .page {
     padding-bottom: 1rem;
 }
+
+ul {
+    list-style: none;
+}
