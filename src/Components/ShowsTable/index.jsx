@@ -101,7 +101,13 @@ export const ShowsTable = () => {
                                     </span>
                                 </div>
                                 <div className={`accordion-content ${activeIndex === index ? 'active' : ''}`}>
-                                    <span>{show.date.replace(/-/g, '/')}</span>
+                                    <span>
+                                        {new Date(show.date.replace(/-/g, '/')).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}
+                                    </span>
                                     <br />
                                     <br />
                                     <span>{show.venue}</span>

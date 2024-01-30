@@ -82,11 +82,13 @@
     background-color: transparent;
     color: #fff;
     max-height: 0;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
 .accordion-content.active {
     max-height: 200px;
+    opacity: 1;
 }
 
 .accordion-content a {
