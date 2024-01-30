@@ -50,7 +50,7 @@ export const ShowsTable = () => {
                         Show dates, locations, venues, and ticket portals are available in the shows table below.
                         <br />
                         <br />
-                        * To pace a booking request please navigate to the booking form below the shows table
+                        * To book Dwayne Gretzky, please scroll below the shows table.
                     </p>
                 </div>
                 {!isMobile ? (
@@ -67,7 +67,13 @@ export const ShowsTable = () => {
                         {showData.map((show, index) => {
                             return (
                                 <tr key={index}>
-                                    <td>{show.date.replace(/-/g, '/')}</td>
+                                    <td>
+                                        {new Date(show.date.replace(/-/g, '/')).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}
+                                    </td>
                                     <td>{show.city}</td>
                                     <td>{show.venue}</td>
                                     <td>
