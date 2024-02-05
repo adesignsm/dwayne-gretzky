@@ -64,18 +64,19 @@ export const ShowsTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {showData.map((show, index) => {
+                        {showData && showData.map((show, index) => {
                             return (
                                 <tr key={index}>
                                     <td>
-                                        {new Date(show.date.replace(/-/g, '/')).toLocaleDateString('en-US', {
+                                        {show.date ? new Date(show.date.replace(/-/g, '/')).toLocaleDateString('en-US', {
                                             year: 'numeric',
                                             month: 'long',
                                             day: 'numeric'
-                                        })}
+                                        }) : <p>TBD</p>
+                                        }
                                     </td>
-                                    <td>{show.city}</td>
-                                    <td>{show.venue}</td>
+                                    <td>{show.city ? show.city : <p>TBD</p>}</td>
+                                    <td>{show.venue ? show.venue : <p>TBD</p>}</td>
                                     <td>
                                         {show.link !== undefined ? (
                                             <p>
