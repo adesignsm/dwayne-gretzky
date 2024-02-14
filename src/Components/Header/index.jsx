@@ -4,10 +4,6 @@ import ImageUrlBuilder from '@sanity/image-url';
 
 import './index.css';
 
-import InstagramIcon from '../../Assets/socialMediaIcons/instagram.svg';
-import YoutubeIcon from '../../Assets/socialMediaIcons/youtube.svg';
-import SpotifyIcon from '../../Assets/socialMediaIcons/spotify.svg'; 
-
 export const Header = () => {
     const [navData, setNavData] = useState([]);
     const [linkData, setLinkData] = useState([]);
@@ -45,7 +41,6 @@ export const Header = () => {
                 </nav>
                 <div className='links'>
                     {linkData.map((item) => {
-                        console.log(item)
                         return (
                             <a key={item._key} href={item.url}>
                                 <img src={urlFor(item.icon.asset._ref).url()} />

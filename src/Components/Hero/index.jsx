@@ -1,33 +1,43 @@
 import { useEffect, useState } from 'react';
+import sanityClient from '../../client';
+import ImageUrlBuilder from '@sanity/image-url';
 
 import './index.css';
 
-import DesktopLogo from '../../Assets/logos/desktop_logo.png';
-import MobileLogo from '../../Assets/logos/mobile_logo.png';
-
 export const Hero = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [data, setData] = useState([]);
 
-    const handleWindowResize = () => {
-        setWidth(window.innerWidth);
+    const builder = ImageUrlBuilder(sanityClient);
+
+    const urlFor = (source) => {
+        return builder.image(source);
     }
 
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowResize);
-
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
+    const fetchData = async () => {
+        try {
+            const query = `*[_type == 'home'][0]`;
+            const result = await sanityClient.fetch(query);
+            setData(result.hero);
+        } catch (error) {
+            console.error(error);
         }
+    };
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
-    const isMobile = width <= 768;
+    console.log(data);
 
     return (
         <>
             <div className="hero">
-                <div className='logo'>
-                    <img src={!isMobile ? DesktopLogo : MobileLogo} />
-                </div>
+                {data && data.backgroundImage && (
+                    <img className='background-image' src={urlFor(data.backgroundImage.asset._ref).url()}/>
+                )}
+                {data && data.logo && (
+                    <img className='logo' src={urlFor(data.logo.asset._ref).url()} />
+                )}
             </div>
         </>
     )
