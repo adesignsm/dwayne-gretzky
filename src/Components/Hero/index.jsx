@@ -31,14 +31,14 @@ export const Hero = () => {
 
     return (
         <>
-            <div className="hero">
+            <section className="hero">
                 {data && data.backgroundImage && (
                     <img className='background-image' src={urlFor(data.backgroundImage.asset._ref).url()}/>
                 )}
                 {data && data.logo && (
                     <img className='logo' src={urlFor(data.logo.asset._ref).url()} />
                 )}
-            </div>
+            </section>
         </>
     )
 }

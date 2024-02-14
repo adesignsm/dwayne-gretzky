@@ -45,6 +45,11 @@ export default {
                             type: 'string',
                         },
                         {
+                            name: 'description',
+                            title: 'Description',
+                            type: 'text',
+                        },
+                        {
                             name: 'media',
                             title: 'Post Media',
                             type: 'image'
