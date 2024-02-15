@@ -1,9 +1,10 @@
 .header {
     height: auto;
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
+    margin: 0 auto;
 }
 
 .header .nav {

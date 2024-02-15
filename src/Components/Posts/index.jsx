@@ -27,8 +27,6 @@ export const Posts = () => {
         fetchData();
     }, []);
 
-    console.log(data);
-
     return (
         <>
             <section className='posts'>

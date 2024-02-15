@@ -25,6 +25,26 @@ export default {
             of: [{
                 type: 'string',
             }]
+        },
+        {
+            name: 'links',
+            title: 'Link Items',
+            type: 'array',
+            of: [{
+                type: 'object',
+                fields: [
+                    {
+                        name: 'title',
+                        title: 'Link Title',
+                        type: 'string'
+                    },
+                    {
+                        name: 'url',
+                        title: 'Link Url',
+                        type: 'url',
+                    }
+                ]
+            }]
         }
     ]
 }
