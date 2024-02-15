@@ -3,16 +3,12 @@
 body,  html {
     background-color: #000;
     height: 100%;
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto;
 }
 
 * {
     font-family: 'Poppins', sans-serif;
-}
-
-.page {
-    padding-bottom: 1rem;
 }
 
 ul {
