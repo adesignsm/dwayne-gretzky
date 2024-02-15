@@ -1,7 +1,8 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Home } from "./Routes/Home";
+
 import { Header } from './Components/Header';
-import { Hero } from './Components/Hero';
-import { ShowsTable } from './Components/ShowsTable';
-import { GigwellBookingForm } from './Components/GigWellBookingForm';
 import { Footer } from './Components/Footer';
 
 import './root.css';
@@ -10,11 +11,13 @@ export const App = () => {
     return (
         <>
             <main className='page'>
-                <Header />
-                <Hero />
-                <ShowsTable />
-                <GigwellBookingForm />
-                <Footer />
+                <BrowserRouter>
+                    <Header />
+                    <Routes>
+                        <Route exact path='/' element={<Home />} />
+                    </Routes>
+                    <Footer />
+                </BrowserRouter>
             </main>
         </>
     )
