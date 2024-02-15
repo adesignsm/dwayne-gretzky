@@ -1,15 +1,21 @@
 .hero {
-    width: 100%;
-    height: auto;
+    width: 95%;
+    height: 100vh;
     display: flex;
     overflow: hidden;
+    margin: 0 auto;
+}
+
+.hero .background-image {
+    margin-top: 4rem;
+    object-fit: cover;
+    width: 100%;
+    height: fit-content;
 }
 
 .hero .logo {
+    position:absolute;
+    left: 0;
     width: 100%;
-}
-
-.hero .logo img {
-    width: 100%;
-    transform: scale(1.15);
+    z-index: 1; 
 }
