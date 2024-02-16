@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useSpring, useScroll, animated } from 'react-spring';
 import sanityClient from '../../client';
 import ImageUrlBuilder from '@sanity/image-url';
 
 import './index.css';
+import GRADIENT from '../../Assets/logos/gradient_logo.png';
 
 export const Hero = () => {
     const [data, setData] = useState([]);
+    const { scrollYProgress } = useScroll();
 
     const builder = ImageUrlBuilder(sanityClient);
 
@@ -23,11 +26,21 @@ export const Hero = () => {
         }
     };
 
+    const logoAnimation = useSpring({
+        top: scrollYProgress.interpolate([0, 0.5], ['70px', '40px']),
+        left: '50%',
+        transform: scrollYProgress.interpolate(
+            [0, 0.5],
+            ['translateX(-50%)', 'translateX(-50%) scale(0.5)']
+        ),
+        width: scrollYProgress.interpolate([0, 0.8], ['100%', '50%']),
+        from: { top: '50px', left: '0', width: '100%' },
+        config: { duration: 0 }
+    });
+
     useEffect(() => {
         fetchData();
     }, []);
-
-    console.log(data);
 
     return (
         <>
@@ -36,7 +49,18 @@ export const Hero = () => {
                     <img className='background-image' src={urlFor(data.backgroundImage.asset._ref).url()}/>
                 )}
                 {data && data.logo && (
-                    <img className='logo' src={urlFor(data.logo.asset._ref).url()} />
+                    <a href='/'>
+                        <animated.img 
+                            className='logo' 
+                            src={urlFor(data.logo.asset._ref).url()} 
+                            style={ logoAnimation }
+                        />
+                        <animated.img 
+                            className='logo gradient' 
+                            src={GRADIENT} 
+                            style={ logoAnimation }
+                        />
+                    </a>
                 )}
             </section>
         </>

@@ -1,9 +1,12 @@
 .header {
+    position: fixed;
+    top: 0;
     height: auto;
     width: 95%;
     display: flex;
     justify-content: space-between;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
     margin: 0 auto;
 }
 
@@ -28,6 +31,22 @@
 .header .links {
     display: flex;
     gap: 35px;
+}
+
+.header .links img {
+    position: absolute;
+}
+
+.header .links .gradient {
+    position: absolute;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    border-radius: 100%;
+}
+
+.header .links .gradient:hover {
+    opacity: 1;
 }
 
 @media only screen and (min-width: 375px) and (max-width: 768px) {

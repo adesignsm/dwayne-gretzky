@@ -48,4 +48,10 @@
     color: #F9F6E4;
     border-radius: 15px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.posts article button:hover {
+    color: #000;
+    background-color: #F9F6E4;
 }
