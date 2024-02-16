@@ -1,34 +1,68 @@
 import { useEffect, useState } from 'react';
+import { useSpring, useScroll, animated } from 'react-spring';
+import sanityClient from '../../client';
+import ImageUrlBuilder from '@sanity/image-url';
 
 import './index.css';
-
-import DesktopLogo from '../../Assets/logos/desktop_logo.png';
-import MobileLogo from '../../Assets/logos/mobile_logo.png';
+import GRADIENT from '../../Assets/logos/gradient_logo.png';
 
 export const Hero = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [data, setData] = useState([]);
+    const { scrollYProgress } = useScroll();
 
-    const handleWindowResize = () => {
-        setWidth(window.innerWidth);
+    const builder = ImageUrlBuilder(sanityClient);
+
+    const urlFor = (source) => {
+        return builder.image(source);
     }
 
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowResize);
-
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
+    const fetchData = async () => {
+        try {
+            const query = `*[_type == 'home'][0]`;
+            const result = await sanityClient.fetch(query);
+            setData(result.hero);
+        } catch (error) {
+            console.error(error);
         }
-    }, []);
+    };
 
-    const isMobile = width <= 768;
+    const logoAnimation = useSpring({
+        top: scrollYProgress.interpolate([0, 0.5], ['70px', '40px']),
+        left: '50%',
+        transform: scrollYProgress.interpolate(
+            [0, 0.5],
+            ['translateX(-50%)', 'translateX(-50%) scale(0.5)']
+        ),
+        width: scrollYProgress.interpolate([0, 0.8], ['100%', '50%']),
+        from: { top: '50px', left: '0', width: '100%' },
+        config: { duration: 0 }
+    });
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <>
-            <div className="hero">
-                <div className='logo'>
-                    <img src={!isMobile ? DesktopLogo : MobileLogo} />
-                </div>
-            </div>
+            <section className="hero">
+                {data && data.backgroundImage && (
+                    <img className='background-image' src={urlFor(data.backgroundImage.asset._ref).url()}/>
+                )}
+                {data && data.logo && (
+                    <a href='/'>
+                        <animated.img 
+                            className='logo' 
+                            src={urlFor(data.logo.asset._ref).url()} 
+                            style={ logoAnimation }
+                        />
+                        <animated.img 
+                            className='logo gradient' 
+                            src={GRADIENT} 
+                            style={ logoAnimation }
+                        />
+                    </a>
+                )}
+            </section>
         </>
     )
 }

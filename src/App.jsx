@@ -1,7 +1,12 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Home } from "./Routes/Home";
+import { About } from './Routes/About';
+import { Tickets } from "./Routes/Tickets";
+import { Booking } from "./Routes/Booking";
+import { Videos } from "./Routes/Videos";
+
 import { Header } from './Components/Header';
-import { Hero } from './Components/Hero';
-import { ShowsTable } from './Components/ShowsTable';
-import { GigwellBookingForm } from './Components/GigWellBookingForm';
 import { Footer } from './Components/Footer';
 
 import './root.css';
@@ -10,11 +15,17 @@ export const App = () => {
     return (
         <>
             <main className='page'>
-                <Header />
-                <Hero />
-                <ShowsTable />
-                <GigwellBookingForm />
-                <Footer />
+                <BrowserRouter>
+                    <Header />
+                    <Routes>
+                        <Route exact path='/' element={<Home />} />
+                        <Route path='/about' element={<About />} />
+                        <Route path='/tickets' element={<Tickets />} />
+                        <Route path='/booking' element={<Booking />} />
+                        <Route path='/videos' element={<Videos />} />
+                     </Routes>
+                    <Footer />
+                </BrowserRouter>
             </main>
         </>
     )
