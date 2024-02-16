@@ -31,8 +31,6 @@ export const Footer = () => {
         fetchData();
     }, []);
 
-    console.log(data);
-
     return (
         <footer className='footer'>
             {data && data.backgroundImage ? (

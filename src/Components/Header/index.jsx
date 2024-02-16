@@ -45,7 +45,6 @@ export const Header = () => {
                 </nav>
                 <div className='links'>
                     {linkData.map((item) => {
-                        console.log(item);
                         return (
                             <a key={item._key} href={item.url}>
                                 <img src={urlFor(item.icon.asset._ref).url()} />

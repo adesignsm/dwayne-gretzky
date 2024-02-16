@@ -5,9 +5,10 @@
     width: 95%;
     display: flex;
     justify-content: space-between;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     padding-left: 1rem;
     margin: 0 auto;
+    z-index: 1;
 }
 
 .header .nav {
