@@ -1,16 +1,52 @@
 .header {
+    position: fixed;
+    top: 0;
     height: auto;
-    width: 100%;
+    width: 95%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    margin: 0 auto;
 }
 
-.header .social-media-icons {
+.header .nav {
     display: flex;
-    align-items: center;
-    padding-left: 0;
-    justify-content: space-evenly;
-    width: 200px;
+    gap: 35px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #F9F6E4;
+    text-transform: uppercase;
+    border-bottom: 0;
+    height: fit-content;
+    transition: border-bottom 1s ease-in-out;
+}
+
+.header .nav a:hover {
+    border-bottom: 1px solid #F9F6E4;
+}
+
+.header .links {
+    display: flex;
+    gap: 35px;
+}
+
+.header .links img {
+    position: absolute;
+}
+
+.header .links .gradient {
+    position: absolute;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    border-radius: 100%;
+}
+
+.header .links .gradient:hover {
+    opacity: 1;
 }
 
 @media only screen and (min-width: 375px) and (max-width: 768px) {
