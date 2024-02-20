@@ -36,10 +36,17 @@ export const Posts = () => {
                             <article key={post._key}>
                                 <img src={urlFor(post.media.asset._ref).url()} />
                                 <div className='content'>
-                                    <h1>{post.heading}</h1>
+                                    <a href={`/post${post.cta.slug.current}`}>
+                                        <h1>{post.heading}</h1>
+                                    </a>
                                     <h3>{post.subTitle}</h3>
-                                    <p>{post.description}</p>
-                                    <button>{post.cta.text}</button>
+                                    <p>{post.description.split(' ').length > 65 
+                                        ? post.description.split(' ').slice(0, 65).join(' ') + '...' 
+                                        : post.description}
+                                    </p>
+                                    <a className='cta' href={`/post${post.cta.slug.current}`}>
+                                        {post.cta.text}
+                                    </a>
                                 </div>
                             </article>
                         )

@@ -5,6 +5,7 @@ import { About } from './Routes/About';
 import { Tickets } from "./Routes/Tickets";
 import { Booking } from "./Routes/Booking";
 import { Videos } from "./Routes/Videos";
+import { Post } from "./Routes/Post";
 
 import { Header } from './Components/Header';
 import { Footer } from './Components/Footer';
@@ -23,6 +24,7 @@ export const App = () => {
                         <Route path='/tickets' element={<Tickets />} />
                         <Route path='/booking' element={<Booking />} />
                         <Route path='/videos' element={<Videos />} />
+                        <Route path='/post/:handle' element={<Post />} />
                      </Routes>
                     <Footer />
                 </BrowserRouter>
