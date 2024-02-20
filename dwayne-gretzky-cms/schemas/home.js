@@ -65,9 +65,9 @@ export default {
                                     type: 'string',
                                 },
                                 {
-                                    name: 'url',
-                                    title: 'Button Url',
-                                    type: 'url'
+                                    name: 'slug',
+                                    title: 'Button Slug',
+                                    type: 'slug'
                                 }
                             ]
                         },
