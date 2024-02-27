@@ -1,0 +1,35 @@
+.videos-page .videos-container h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 4em;
+}
+
+.videos-page .videos-container .videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.videos-page .videos-container .videos .main-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.videos-page .videos-container .videos .main-video iframe {
+    width: 50%;
+    height: 50vh;
+    border: none;
+    border-radius: 10px;
+}
+
+.videos-page .videos-container .videos .side-videos iframe {
+    width: 40vw;
+    height: 50vh;
+    border: none;
+    border-radius: 10px;
+}
