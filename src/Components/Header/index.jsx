@@ -7,15 +7,22 @@ import './index.css';
 import IG_GRADIENT from '../../Assets/socialMediaIcons/IG_gradient.png';
 import SPOTIFY_GRADIENT from '../../Assets/socialMediaIcons/SPOTIFY_gradient.png';
 import YOUTUBE_GRADIENT from '../../Assets/socialMediaIcons/YOUTUBE_gradient.png';
+import HAMBURGER from '../../Assets/icons/burger.svg';
 
 export const Header = () => {
     const [navData, setNavData] = useState([]);
     const [linkData, setLinkData] = useState([]);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [width] = useState(window.innerWidth);
 
     const builder = ImageUrlBuilder(sanityClient);
 
     const urlFor = (source) => {
         return builder.image(source);
+    }
+
+    const toggleMobileMenu = () => {
+        setShowDropdown(!showDropdown);
     }
 
     const fetchData = async () => {
@@ -36,13 +43,26 @@ export const Header = () => {
     return (
         <>
             <header className='header'>
-                <nav className='nav'>
-                    {navData.map((item, index) => {
-                        return (
-                            <a key={index} href={`/${item}`}>{item}</a>
-                        )
-                    })}
-                </nav>
+                {width > 768 ? (
+                    <nav className='nav'>
+                        {navData.map((item, index) => {
+                            return (
+                                <a key={index} href={`/${item}`}>{item}</a>
+                            )
+                        })}
+                    </nav>
+                ) : (
+                    <div className="dropdown">
+                        <img src={HAMBURGER} onClick={() => toggleMobileMenu()}/>
+                        <nav className={`dropdown-content ${showDropdown ? 'show' : ''}`}>
+                            {navData.map((item, index) => {
+                                return (
+                                    <a key={index} href={`/${item}`}>{item}</a>
+                                )
+                            })}
+                        </nav>
+                    </div>
+                )}
                 <div className='links'>
                     {linkData.map((item) => {
                         return (
