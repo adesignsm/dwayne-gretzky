@@ -1,0 +1,87 @@
+.posts {
+    width: 70vw;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+.posts article {
+    display: flex;
+    margin-bottom: 4rem;
+    gap: 50px;
+}
+
+.posts article h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.posts article h1:hover {
+    border-bottom: 1px solid #F9F6E4;
+}
+
+.posts article h3 {
+    margin-top: 1rem;
+    font-weight: normal;
+}
+
+.posts article p {
+    margin-bottom: 2rem;
+}
+
+.posts article img {
+    width: 100%;
+}
+
+.posts article .content {
+    width: 100%;
+    color: #F9F6E4;
+}
+
+.posts article .content a {
+    color: #F9F6E4;
+    text-decoration: none;
+}
+
+.posts article .content a.cta {
+    border: 1px solid #F9F6E4;
+    padding: 1rem;
+    background-color: transparent;
+    color: #F9F6E4;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.posts article .content a.cta:hover {
+    color: #000;
+    background-color: #F9F6E4;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    .posts {
+        width: 80vw;
+    }
+
+    .posts article {
+        flex-direction: column;
+    }
+
+    .posts article img {
+        height: 300px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .posts article .content a > h1{
+        margin-top: 0;
+    }
+
+    .posts article .content h3 {
+        margin-top: 0;
+    }
+}
