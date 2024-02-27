@@ -97,7 +97,14 @@
 @media only screen and (min-width: 375px) and (max-width: 768px) {
     .header {
         justify-content: space-between;
-        width: 85vw;
+        width: 100vw;
+        background-color: #000;
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+    }
+
+    .header .links {
+        margin-right: 3.5rem;
     }
 
     .header .dropdown-content.show {

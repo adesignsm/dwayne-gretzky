@@ -8,6 +8,8 @@ import GRADIENT from '../../Assets/logos/gradient_logo.png';
 
 export const Hero = () => {
     const [data, setData] = useState([]);
+    const [width] = useState(window.innerWidth);
+    const [lastTouchY, setLastTouchY] = useState(null);
     const { scrollYProgress } = useScroll();
 
     const builder = ImageUrlBuilder(sanityClient);
@@ -38,13 +40,34 @@ export const Hero = () => {
         config: { duration: 0 }
     });
 
+    const handleTouchStart = (e) => {
+        const currentTouchY = e.touches[0].clientY;
+
+        if (lastTouchY !== null) {
+            const deltaY = currentTouchY - lastTouchY;
+
+            if (deltaY > 0) {
+                console.log("Scrolling down");
+                document.querySelector('.logo').classList.add('show');
+                document.querySelector('.logo').classList.remove('hide');
+            } else if (deltaY < 0) {
+                console.log("Scrolling up");
+                document.querySelector('.logo').classList.add('hide');
+                document.querySelector('.logo').classList.remove('show');
+            } else {
+                console.log("No vertical scroll");
+            }
+        }
+        setLastTouchY(currentTouchY);
+    }
+
     useEffect(() => {
         fetchData();
     }, []);
 
     return (
         <>
-            <section className="hero">
+            <section className="hero" onTouchStart={(e) => handleTouchStart(e)}>
                 {data && data.backgroundImage && (
                     <img className='background-image' src={urlFor(data.backgroundImage.asset._ref).url()}/>
                 )}
@@ -53,12 +76,12 @@ export const Hero = () => {
                         <animated.img 
                             className='logo' 
                             src={urlFor(data.logo.asset._ref).url()} 
-                            style={ logoAnimation }
+                            style={ width > 768 ? logoAnimation : null }
                         />
                         <animated.img 
                             className='logo gradient' 
                             src={GRADIENT} 
-                            style={ logoAnimation }
+                            style={ width > 768 ? logoAnimation : null }
                         />
                     </a>
                 )}
