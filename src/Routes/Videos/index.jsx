@@ -23,8 +23,6 @@ export const Videos = () => {
         fetchData();
     }, []);
 
-    console.log(data.videoLinks);
-
     return (
         <div className="videos-page">
             <Hero />

@@ -33,3 +33,19 @@
     border: none;
     border-radius: 10px;
 }
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    .videos-page .videos-container .videos .main-video {
+        width: 90%;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 2rem;
+    }
+
+    .videos-page .videos-container .videos .main-video iframe {
+        width: 100%;
+    }
+
+    .videos-page .videos-container .videos .side-videos iframe {
+        width: 100%;
+    }
+}
