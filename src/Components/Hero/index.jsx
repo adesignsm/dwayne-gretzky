@@ -9,7 +9,8 @@ import GRADIENT from '../../Assets/logos/gradient_logo.png';
 export const Hero = () => {
     const [data, setData] = useState([]);
     const [width] = useState(window.innerWidth);
-    const [lastTouchY, setLastTouchY] = useState(null);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true);
     const { scrollYProgress } = useScroll();
 
     const builder = ImageUrlBuilder(sanityClient);
@@ -40,39 +41,32 @@ export const Hero = () => {
         config: { duration: 0 }
     });
 
-    const handleTouchStart = (e) => {
-        const currentTouchY = e.touches[0].clientY;
-
-        if (lastTouchY !== null) {
-            const deltaY = currentTouchY - lastTouchY;
-
-            if (deltaY > 0) {
-                console.log("Scrolling down");
-                document.querySelector('.logo').classList.add('show');
-                document.querySelector('.logo').classList.remove('hide');
-            } else if (deltaY < 0) {
-                console.log("Scrolling up");
-                document.querySelector('.logo').classList.add('hide');
-                document.querySelector('.logo').classList.remove('show');
-            } else {
-                console.log("No vertical scroll");
-            }
-        }
-        setLastTouchY(currentTouchY);
-    }
-
     useEffect(() => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+          const currentScrollPos = window.pageYOffset;
+          setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+          setPrevScrollPos(currentScrollPos);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollPos]);
+
     return (
         <>
-            <section className="hero" onTouchStart={(e) => handleTouchStart(e)}>
+            <section className="hero">
                 {data && data.backgroundImage && (
                     <img className='background-image' src={urlFor(data.backgroundImage.asset._ref).url()}/>
                 )}
                 {data && data.logo && (
-                    <a href='/'>
+                    <a href='/' className={`${visible ? 'show' : 'hide'}`}>
                         <animated.img 
                             className='logo' 
                             src={urlFor(data.logo.asset._ref).url()} 
