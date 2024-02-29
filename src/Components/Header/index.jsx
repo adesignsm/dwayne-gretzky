@@ -7,7 +7,9 @@ import './index.css';
 import IG_GRADIENT from '../../Assets/socialMediaIcons/IG_gradient.png';
 import SPOTIFY_GRADIENT from '../../Assets/socialMediaIcons/SPOTIFY_gradient.png';
 import YOUTUBE_GRADIENT from '../../Assets/socialMediaIcons/YOUTUBE_gradient.png';
+
 import HAMBURGER from '../../Assets/icons/burger.svg';
+import CLOSE from '../../Assets/icons/close.svg';
 
 export const Header = () => {
     const [navData, setNavData] = useState([]);
@@ -53,7 +55,7 @@ export const Header = () => {
                     </nav>
                 ) : (
                     <div className="dropdown">
-                        <img src={HAMBURGER} onClick={() => toggleMobileMenu()}/>
+                        <img src={showDropdown ? CLOSE : HAMBURGER} onClick={() => toggleMobileMenu()}/>
                         <nav className={`dropdown-content ${showDropdown ? 'show' : ''}`}>
                             {navData.map((item, index) => {
                                 return (
