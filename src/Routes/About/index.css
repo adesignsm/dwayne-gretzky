@@ -26,3 +26,9 @@
 .about-page .bio-container .about-contact p {
     margin-bottom: 0;
 }
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    .about-page .bio-container {
+        width: 90%;
+    }
+}
