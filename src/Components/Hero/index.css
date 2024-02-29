@@ -1,15 +1,70 @@
 .hero {
-    width: 100%;
-    height: auto;
+    width: 95%;
+    height: 100vh;
     display: flex;
     overflow: hidden;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.hero .background-image {
+    margin-top: 4rem;
+    object-fit: cover;
+    width: 100%;
+    height: fit-content;
 }
 
 .hero .logo {
+    position: fixed;
+    left: 0;
     width: 100%;
+    z-index: 1;
 }
 
-.hero .logo img {
-    width: 100%;
-    transform: scale(1.15);
+.hero .logo.gradient {
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    background-color: transparent;
+}
+
+.hero .logo.gradient:hover {
+    opacity: 1;
+}
+
+.hero a {
+    transition: all .5s ease;
+}
+
+.hero a.hide {
+    opacity: 0;
+    pointer-events: none;
+    margin-top: -1rem;
+}
+
+.hero a.show {
+    opacity: 1;
+    pointer-events: all;
+    margin-top: 0;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    .hero {
+        width: 85vw;
+    }
+
+    .hero .background-image {
+        height: 90vh;
+        border-radius: 15px;
+    }
+
+    .hero .logo {
+        width: 90% !important;
+        transform: translateX(20px) translateY(40px);
+        transition: all .5s ease;
+    }
+
+    .hero .logo.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
