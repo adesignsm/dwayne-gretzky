@@ -3,7 +3,7 @@
 body,  html {
     background-color: #000;
     height: 100%;
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto;
 }
 
@@ -11,10 +11,13 @@ body,  html {
     font-family: 'Poppins', sans-serif;
 }
 
-.page {
-    padding-bottom: 1rem;
-}
-
 ul {
     list-style: none;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    body, html {
+        overflow-x: hidden;
+        height: auto;
+    }
 }
