@@ -1,0 +1,45 @@
+.post-page {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.post-page .post .content {
+    display: flex;
+    flex-direction: column;
+    color: #F9F6E4;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-page .post .content h1 {
+    margin-bottom: 0;
+}
+
+.post-page .post .content h3 {
+    margin-top: 0;
+}
+
+.post-page .post .content p {
+    width: 50%;
+}
+
+.post-page .post .content .media {
+    width: 800px;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    .post-page .post .content {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 5rem;
+    }
+
+    .post-page .post .content .media {
+        width: 100%;
+    }
+
+    .post-page .post .content p {
+        width: 100%;
+    }
+}

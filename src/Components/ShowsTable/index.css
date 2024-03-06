@@ -8,7 +8,6 @@
 
 .shows-table .description h1 {
     text-transform: uppercase;
-    letter-spacing: -0.25rem;
     margin-bottom: 0;
 }
 
@@ -23,7 +22,7 @@
 .shows-table table {
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid white;
+    border: none;
     border-radius: 10px;
     overflow: hidden;
     color: #fff;
@@ -34,7 +33,6 @@
     font-weight: 900;
     text-transform: uppercase;
     font-size: xxx-large;
-    letter-spacing: -0.25rem;
 }
 
 .shows-table table tbody tr {
@@ -48,6 +46,9 @@
 .shows-table table th,
 .shows-table table td {
     border: 1px solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
     padding: 8px;
 }
   
