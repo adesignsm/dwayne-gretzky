@@ -1,5 +1,5 @@
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     height: auto;
     width: 95%;
@@ -7,8 +7,10 @@
     justify-content: space-between;
     padding-top: 2rem;
     padding-left: 1rem;
+    padding-bottom: 2rem;
     margin: 0 auto;
     z-index: 2;
+    background-color: #000;
 }
 
 .header .nav {
@@ -94,6 +96,32 @@
     cursor: pointer;
 }
 
+.header .logo-container {
+    display: flex;
+    margin-left: -10rem;
+}
+
+.header .logo {
+    width: 100%;
+    max-width: 200px;
+    z-index: 1;
+}
+
+.header .logo.gradient {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    background-color: transparent;
+}
+
+.header .logo.gradient:hover {
+    opacity: 1;
+}
+
+.header a {
+    transition: all .5s ease;
+}
+
 @media only screen and (min-width: 375px) and (max-width: 768px) {
     .header {
         justify-content: space-between;
@@ -111,5 +139,10 @@
         pointer-events: all;
         opacity: 1;
         margin-top: 0;
+    }
+
+    .header .logo-container {
+        margin-left: 0;
+        transform: scale(0.7);
     }
 }

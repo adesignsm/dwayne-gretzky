@@ -11,8 +11,11 @@ import YOUTUBE_GRADIENT from '../../Assets/socialMediaIcons/YOUTUBE_gradient.png
 import HAMBURGER from '../../Assets/icons/burger.svg';
 import CLOSE from '../../Assets/icons/close.svg';
 
+import GRADIENT from '../../Assets/logos/gradient_logo.png';
+
 export const Header = () => {
     const [navData, setNavData] = useState([]);
+    const [logoData, setLogoData] = useState([]);
     const [linkData, setLinkData] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const [width] = useState(window.innerWidth);
@@ -38,8 +41,19 @@ export const Header = () => {
         }
     };
 
+    const fetchLogoData = async () => {
+        try {
+            const query = `*[_type == 'home'][0]`;
+            const result = await sanityClient.fetch(query);
+            setLogoData(result.hero);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     useEffect(() => {
         fetchData();
+        fetchLogoData();
     }, []);
 
     return (
@@ -64,6 +78,18 @@ export const Header = () => {
                             })}
                         </nav>
                     </div>
+                )}
+                {logoData && logoData.logo && (
+                    <a href='/' className='logo-container'>
+                        <img 
+                            className='logo' 
+                            src={urlFor(logoData.logo.asset._ref).url()} 
+                        />
+                        <img 
+                            className='logo gradient' 
+                            src={GRADIENT} 
+                        />
+                    </a>
                 )}
                 <div className='links'>
                     {linkData.map((item) => {

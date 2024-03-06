@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import sanityClient from '../../client';
 import ImageUrlBuilder from '@sanity/image-url';
 
-import { Hero } from "../../Components/Hero"
-
 import './index.css';
 
 export const Videos = () => {
@@ -25,7 +23,6 @@ export const Videos = () => {
 
     return (
         <div className="videos-page">
-            <Hero />
             <div className='videos-container'>
                 <h1>Videos</h1>
                 <div className='videos'>

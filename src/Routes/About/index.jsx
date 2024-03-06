@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import sanityClient from '../../client';
 import ImageUrlBuilder from '@sanity/image-url';
 
-import { Hero } from '../../Components/Hero';
-
 import './index.css';
 
 export const About = () => {
@@ -65,7 +63,6 @@ export const About = () => {
     return (
         <>
             <div className='about-page'>
-                <Hero />
                 <div className='slider' style={{ transform: `translateX(-${scrollPosition}px)` }} onLoad={handleImageLoad}>
                     {combinedImages.map((image, index) => (
                         <img key={index} src={urlFor(image.asset._ref).url()} onLoad={handleImageLoad} />

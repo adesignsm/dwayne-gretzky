@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import sanityClient from '../../client';
 import ImageUrlBuilder from '@sanity/image-url';
 
-import { Hero } from '../../Components/Hero';
 import './index.css';
 
 export const Post = () => {
@@ -35,13 +34,10 @@ export const Post = () => {
     useEffect(() => {
         fetchData();
     }, []);
-
-    console.log(postData)
     
     return (
         <>
             <div className='post-page'>
-                <Hero />
                 <section className='post-section'>
                     <article className='post'>
                         {Object.keys(postData).length > 0 ? (
