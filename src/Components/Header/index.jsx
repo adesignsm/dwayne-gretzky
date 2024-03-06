@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import sanityClient from '../../client';
 import ImageUrlBuilder from '@sanity/image-url';
 
@@ -19,6 +20,9 @@ export const Header = () => {
     const [linkData, setLinkData] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const [width] = useState(window.innerWidth);
+    const {pathname} = useLocation();
+
+    console.log(pathname);
 
     const builder = ImageUrlBuilder(sanityClient);
 
@@ -58,7 +62,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className='header'>
+            <header className={`header ${pathname === '/' ? 'normal' : 'abnormal'}`}>
                 {width > 768 ? (
                     <nav className='nav'>
                         {navData.map((item, index) => {
@@ -79,7 +83,7 @@ export const Header = () => {
                         </nav>
                     </div>
                 )}
-                {logoData && logoData.logo && (
+                {logoData && logoData.logo && pathname !== '/' && (
                     <a href='/' className='logo-container'>
                         <img 
                             className='logo' 

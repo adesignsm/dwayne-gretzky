@@ -1,6 +1,8 @@
 .header {
     position: sticky;
     top: 0;
+    left: 0;
+    right:0;
     height: auto;
     width: 95%;
     display: flex;
@@ -11,6 +13,10 @@
     margin: 0 auto;
     z-index: 2;
     background-color: #000;
+}
+
+.header.normal {
+    background-color: transparent;
 }
 
 .header .nav {
@@ -124,11 +130,12 @@
 
 @media only screen and (min-width: 375px) and (max-width: 768px) {
     .header {
+        position: sticky;
         justify-content: space-between;
         width: 100vw;
         background-color: #000;
-        padding-bottom: 1.5rem;
-        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+        margin-top: 0;
     }
 
     .header .links {

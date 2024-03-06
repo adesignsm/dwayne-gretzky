@@ -8,7 +8,6 @@
 }
 
 .hero .background-image {
-    margin-top: 4rem;
     object-fit: cover;
     width: 100%;
     height: fit-content;
@@ -38,11 +37,13 @@
 @media only screen and (min-width: 375px) and (max-width: 768px) {
     .hero {
         width: 85vw;
+        margin-top: 0;
     }
 
     .hero .background-image {
         height: 90vh;
         border-radius: 15px;
+        margin-top: 3rem;
     }
 
     .hero .logo {
