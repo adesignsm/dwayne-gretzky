@@ -23,7 +23,7 @@
 .shows-table table {
     border-collapse: separate;
     border-spacing: 0;
-    border: 1px solid white;
+    border: none;
     border-radius: 10px;
     overflow: hidden;
     color: #fff;
@@ -48,6 +48,9 @@
 .shows-table table th,
 .shows-table table td {
     border: 1px solid white;
+    border-right: none;
+    border-left: none;
+    border-top: none;
     padding: 8px;
 }
   
