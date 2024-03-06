@@ -8,7 +8,6 @@
 
 .shows-table .description h1 {
     text-transform: uppercase;
-    letter-spacing: -0.25rem;
     margin-bottom: 0;
 }
 
@@ -34,7 +33,6 @@
     font-weight: 900;
     text-transform: uppercase;
     font-size: xxx-large;
-    letter-spacing: -0.25rem;
 }
 
 .shows-table table tbody tr {
