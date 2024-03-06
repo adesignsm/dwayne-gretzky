@@ -1,8 +1,8 @@
 .hero {
     width: 95%;
-    height: 100vh;
+    height: 100%;
     display: flex;
-    overflow: hidden;
+    overflow-y: hidden;
     margin: 0 auto;
     margin-top: 4rem;
 }

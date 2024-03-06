@@ -22,8 +22,6 @@ export const Header = () => {
     const [width] = useState(window.innerWidth);
     const {pathname} = useLocation();
 
-    console.log(pathname);
-
     const builder = ImageUrlBuilder(sanityClient);
 
     const urlFor = (source) => {

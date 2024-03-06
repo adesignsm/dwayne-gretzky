@@ -9,6 +9,7 @@ export const About = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [sliderWidth, setSliderWidth] = useState(0);
     const [combinedImages, setCombinedImages] = useState([]);
+    const [width] = useState(window.innerWidth);
 
     const builder = ImageUrlBuilder(sanityClient);
 
@@ -20,7 +21,6 @@ export const About = () => {
         try {
             const query = `*[_type == 'aboutPage'][0]`;
             const result = await sanityClient.fetch(query);
-            console.log(result);
             setData(result);
         } catch (error) {
             console.error(error);
@@ -46,7 +46,7 @@ export const About = () => {
                     if (prevPosition >= totalWidth) {
                         return 0;
                     } else {
-                        return prevPosition + 1;
+                        return width < 768 ? prevPosition + 0.1 : prevPosition + 1;
                     }
                 });
             }, 1);

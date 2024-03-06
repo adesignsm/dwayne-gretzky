@@ -46,18 +46,26 @@ export const Hero = () => {
     }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-          const currentScrollPos = window.pageYOffset;
-          setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
-          setPrevScrollPos(currentScrollPos);
+        let startY = 0;
+    
+        const handleTouchMove = (event) => {
+            const currentY = event.touches[0].clientY;
+            const deltaY = currentY - startY;
+            setVisible(deltaY > 200 || window.scrollY === 0);
+            startY = currentY;
         };
     
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('touchstart', (event) => {
+            startY = event.touches[0].clientY;
+        });
+    
+        window.addEventListener('touchmove', handleTouchMove);
     
         return () => {
-          window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('touchmove', handleTouchMove);
         };
-    }, [prevScrollPos]);
+    }, []);
+    
 
     return (
         <>
