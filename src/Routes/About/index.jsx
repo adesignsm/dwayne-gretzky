@@ -10,6 +10,7 @@ export const About = () => {
     const [sliderWidth, setSliderWidth] = useState(0);
     const [combinedImages, setCombinedImages] = useState([]);
     const [width] = useState(window.innerWidth);
+    const [isPaused, setIsPaused] = useState(false);
 
     const builder = ImageUrlBuilder(sanityClient);
 
@@ -42,28 +43,44 @@ export const About = () => {
         if (data && data.sliderImages && data.sliderImages.length > 0) {
             const totalWidth = combinedImages.length * sliderWidth;
             const interval = setInterval(() => {
-                setScrollPosition(prevPosition => {
-                    if (prevPosition >= totalWidth) {
-                        return 0;
-                    } else {
-                        return width < 768 ? prevPosition + 0.1 : prevPosition + 1;
-                    }
-                });
+                if (!isPaused) {
+                    setScrollPosition(prevPosition => {
+                        if (prevPosition >= totalWidth) {
+                            return 0;
+                        } else {
+                            return width < 768 ? prevPosition + 0.1 : prevPosition + 0.3;
+                        }
+                    });
+                }
             }, 1);
     
             return () => clearInterval(interval);
         }
-    }, [combinedImages.length, sliderWidth]);
+    }, [combinedImages.length, sliderWidth, isPaused]);
 
     const handleImageLoad = () => {
         const imageWidth = document.querySelector('.slider img')?.offsetWidth || 0;
         setSliderWidth(imageWidth);
     };
 
+    const handleMouseEnter = () => {
+        setIsPaused(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsPaused(false);
+    };
+
     return (
         <>
             <div className='about-page'>
-                <div className='slider' style={{ transform: `translateX(-${scrollPosition}px)` }} onLoad={handleImageLoad}>
+                <div 
+                    className='slider' 
+                    style={{ transform: `translateX(-${scrollPosition}px)` }} 
+                    onLoad={handleImageLoad}
+                    onMouseEnter={handleMouseEnter} 
+                    onMouseLeave={handleMouseLeave}
+                >
                     {combinedImages.map((image, index) => (
                         <img key={index} src={urlFor(image.asset._ref).url()} onLoad={handleImageLoad} />
                     ))}

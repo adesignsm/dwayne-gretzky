@@ -36,19 +36,19 @@
 
 @media only screen and (min-width: 375px) and (max-width: 768px) {
     .hero {
-        width: 85vw;
+        width: 80vw;
         margin-top: 0;
     }
 
     .hero .background-image {
         height: 90vh;
-        border-radius: 15px;
+        border-radius: 10px;
         margin-top: 3rem;
     }
 
     .hero .logo {
-        width: 90% !important;
-        transform: translateX(20px) translateY(40px);
+        width: 85% !important;
+        transform: translateX(30px) translateY(30px);
         transition: all .5s ease;
     }
 

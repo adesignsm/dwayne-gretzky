@@ -1,6 +1,7 @@
 .booking-page {
     width: 700px;
     margin: 0 auto;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

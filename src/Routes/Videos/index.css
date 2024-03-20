@@ -1,7 +1,12 @@
+.videos-page {
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
 .videos-page .videos-container h1 {
-    color: #fff;
+    color: #F9F6E4;
     text-align: center;
-    font-size: 4em;
+    font-size: xxx-large;
 }
 
 .videos-page .videos-container .videos {

@@ -48,19 +48,16 @@ export const ShowsTable = () => {
                     <h1>Shows</h1>
                     <p>
                         Show dates, locations, venues, and ticket portals are available in the shows table below.
-                        <br />
-                        <br />
-                        * To book Dwayne Gretzky, please scroll below the shows table.
                     </p>
                 </div>
                 {!isMobile ? (
                     <table>
                     <thead>
                         <tr>
-                            <th>Show Date</th>
-                            <th>City</th>
-                            <th>Venue</th>
-                            <th>Ticket Link</th>
+                            <th><h1>Show Date</h1></th>
+                            <th><h1>City</h1></th>
+                            <th><h1>Venue</h1></th>
+                            <th><h1>Ticket Link</h1></th>
                         </tr>
                     </thead>
                     <tbody>

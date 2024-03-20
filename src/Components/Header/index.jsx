@@ -5,14 +5,14 @@ import ImageUrlBuilder from '@sanity/image-url';
 
 import './index.css';
 
-import IG_GRADIENT from '../../Assets/socialMediaIcons/IG_gradient.png';
-import SPOTIFY_GRADIENT from '../../Assets/socialMediaIcons/SPOTIFY_gradient.png';
-import YOUTUBE_GRADIENT from '../../Assets/socialMediaIcons/YOUTUBE_gradient.png';
+import IG_GRADIENT from '../../Assets/socialMediaIcons/IG_gradient.svg';
+import SPOTIFY_GRADIENT from '../../Assets/socialMediaIcons/SPOTIFY_gradient.svg';
+import YOUTUBE_GRADIENT from '../../Assets/socialMediaIcons/YOUTUBE_gradient.svg';
 
 import HAMBURGER from '../../Assets/icons/burger.svg';
 import CLOSE from '../../Assets/icons/close.svg';
 
-import GRADIENT from '../../Assets/logos/gradient_logo.png';
+import GRADIENT from '../../Assets/logos/gradient_logo.svg';
 
 export const Header = () => {
     const [navData, setNavData] = useState([]);

@@ -1,3 +1,9 @@
+.about-page {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
 .about-page .slider {
     display: flex;
     width: 100%;
@@ -16,15 +22,27 @@
 .about-page .bio-container {
     width: 700px;
     margin: 0 auto;
-    color: #fff;
+    color: #F9F6E4;
 }
 
 .about-page .bio-container h1 {
-    font-size: 4em;
+    font-size: xxx-large;
+    color: #F9F6E4;
 }
 
 .about-page .bio-container .about-contact p {
     margin-bottom: 0;
+}
+
+.about-page .bio-container .about-contact a {
+    color: #EAD13A;
+    text-decoration: none;
+    transition: all .3s ease;
+    font-weight: bold;
+}
+
+.about-page .bio-container .about-contact a:hover {
+    text-decoration: underline;
 }
 
 @media only screen and (min-width: 375px) and (max-width: 768px) {

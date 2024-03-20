@@ -4,7 +4,7 @@ import sanityClient from '../../client';
 import ImageUrlBuilder from '@sanity/image-url';
 
 import './index.css';
-import GRADIENT from '../../Assets/logos/gradient_logo.png';
+import GRADIENT from '../../Assets/logos/gradient_logo.svg';
 
 export const Hero = () => {
     const [data, setData] = useState([]);
@@ -30,13 +30,13 @@ export const Hero = () => {
     };
 
     const logoAnimation = useSpring({
-        top: scrollYProgress.interpolate([0, 0.5], ['70px', '40px']),
+        top: scrollYProgress.interpolate([0, 0.65], ['60px', '30px']),
         left: '50%',
         transform: scrollYProgress.interpolate(
             [0, 0.5],
             ['translateX(-50%)', 'translateX(-50%) scale(0.5)']
         ),
-        width: scrollYProgress.interpolate([0, 0.8], ['100%', '50%']),
+        width: scrollYProgress.interpolate([0, 0.8], ['100%', '35px']),
         from: { top: '50px', left: '0', width: '100%' },
         config: { duration: 0 }
     });

@@ -24,7 +24,11 @@ export const GigwellBookingForm = () => {
 
     return (
         <>
-            <gigwell-booking-form open-on-load="true" agency-id="461472" settings="default"></gigwell-booking-form>
+            <gigwell-booking-form 
+                open-on-load="true" 
+                agency-id="461472" 
+                settings="default"
+            ></gigwell-booking-form>
         </>
     );
 };
